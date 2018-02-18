@@ -1,0 +1,20 @@
+body {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    letter-spacing: 0.01rem;
+    font-size: 22px;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  header, article {
+    width: 740px;
+    margin: 2em auto;
+    position: relative;
+    z-index: 2;
+  }
+  .highlight {
+    background: rgba(255, 10, 10, 0.3);
+  }
+  .inner{
+    background: white;
+  }
