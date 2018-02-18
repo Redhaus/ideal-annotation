@@ -18,7 +18,7 @@ app.get('/api', function(req, res) {
   res.send('Annotations API is running');
 });
 
-// Search annotations
+// // Search annotations
 // app.get('/api/search',  function(req, res) {
 //   var query;
 //   var re = new RegExp(req.query.host, 'i');
@@ -110,12 +110,12 @@ app.get('/api', function(req, res) {
 
 
 
-//   app.get('/api/annotations', (req, res, next) => {
-//     Annotation.find()
-//       .exec()
-//       .then((annotation) => res.json(annotation))
-//       .catch((err) => next(err));
-//   });
+  app.get('/api/annotations', (req, res, next) => {
+    Annotation.find()
+      .exec()
+      .then((annotation) => res.json(annotation))
+      .catch((err) => next(err));
+  });
 
 
 // List annotations

@@ -3,15 +3,15 @@
  * object to your store.
  */
 import { combineReducers } from 'redux';
-import { getCounters, selectedCounter } from './CountersReducer';
+// import { getCounters, selectedCounter } from './CountersReducer';
 import { getAnnotations } from './AnnotationReducer';
 
 // I want to refer to counters as "counters" so that's why
 // it's spelled this way. Adding another reducer? Add it below
 // on a new line.
 const allReducers = combineReducers({
-  counters: getCounters,
-  selectedCounter: selectedCounter,
+  // counters: getCounters,
+  // selectedCounter: selectedCounter,
   annotations: getAnnotations
 });
 

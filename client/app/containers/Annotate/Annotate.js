@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 // Redux Actions
-// import { getAnnotations } from '../../actions/AnnotationActions';
+import { getAnnotation } from '../../actions/AnnotationActions';
 
 class Annotate extends Component {
 
@@ -14,7 +14,10 @@ class Annotate extends Component {
     }
 
 
+
     componentDidMount() {
+        this.props.getAnnotation();
+      
         if (typeof annotator === 'undefined') {
             alert("Oops! it looks like you haven't built Annotator. " +
                   "Either download a tagged release from GitHub, or build the " +
@@ -93,18 +96,34 @@ class Annotate extends Component {
       
             app.start()
             .then(function() {
+            // console.log('annotations load: ' , this.props.annotations)
+        
                 // console.log('annotations: ' , app.annotations)
-                // app.annotations.load();
+                // there is an issue with the search api that needs to be resolved for this to load
+                // figure out what exec function does
+              //   var query = {
+              //     _id: '5a893275b04e5fd2b24b398d'
+              // };
+                // app.annotations.load(query);
               });
       
             // simulate empty data load since demo has no annotation store
+            // this.props.annotations
             _marginalia.annotationsLoaded([]);
       
           }
     }
+
+    handleGetAnn(){
+      // console.log(this.props)
+      // console.log(this.props.getAnnotation()) 
+      console.log(this.props.annotations)
+    }
     
 
     render() {
+
+      
         return (
             <div>
 
@@ -112,6 +131,8 @@ class Annotate extends Component {
             <h1>Marginalia demonstration</h1>
             <div className="in-page-controls"></div>
           </header>
+
+          <button onClick={this.handleGetAnn.bind(this)}>annotations display</button>
       
           <article className="content">
             <section className="inner">
@@ -157,21 +178,21 @@ function mapStateToProps(state) {
   
   // Passing the selectCounter action in as a prop.
   // Dispatch is a way saying call a function.
-//   function mapDispatchToProps(dispatch) {
-//     // Connect this function creator to prop.
-//     // return bindActionCreators({
-//     //   selectCounter: selectCounter,
-//     //   getCounters: getCounters,
-//     // }, dispatch);
-//     return {
-//     //   selectCounter: (counter) => {
-//     //     dispatch(selectCounter(counter));
-//     //   },
-//       getAnnotations: dispatch(getAnnotations())
-//     };
-//   }
+  function mapDispatchToProps(dispatch) {
+    // Connect this function creator to prop.
+    return bindActionCreators({
+      getAnnotation: getAnnotation
+      // getCounters: getCounters,
+    }, dispatch);
+    // return {
+    // //   selectCounter: (counter) => {
+    // //     dispatch(selectCounter(counter));
+    // //   },
+    //   getAnnotation: dispatch(this.getAnnotation())
+    // };
+  }
   
-  export default connect(mapStateToProps)(Annotate);
+  export default connect(mapStateToProps, mapDispatchToProps)(Annotate);
 
   
 

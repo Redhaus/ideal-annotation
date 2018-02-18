@@ -12,6 +12,8 @@ import axios from 'axios';
 // };
 
 export function getAnnotation() {
+  console.log('actionCalled')
+  
   return {
     // type: 'COUNTER_LOADED',
     type: 'ANNOTATION_LOADED',
@@ -19,6 +21,7 @@ export function getAnnotation() {
       // setTimeout(() => {
         axios.get('/api/search').then(response => {
           const { data } = response;
+          // console.log('response data: ', data)
           resolve(data);
         });
       // }, 2000);

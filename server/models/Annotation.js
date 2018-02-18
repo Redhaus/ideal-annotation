@@ -52,6 +52,7 @@ var Shape = new mongoose.Schema({
 
 // Annotation Model
 var AnnotationSchema = new mongoose.Schema({
+ 
     id: {
         type: String,
         required: false
@@ -117,7 +118,14 @@ var AnnotationSchema = new mongoose.Schema({
       type: String,
       required: false
     }
+
 });
+
+
+// var AnnotationRows = new mongoose.Schema({
+//     rows:[AnnotationSchema]
+// });
+
 
 // var AnnotationModel = mongoose.model('Annotation', Annotation);
 
