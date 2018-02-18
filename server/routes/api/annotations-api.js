@@ -118,16 +118,27 @@ app.get('/api', function(req, res) {
   });
 
 
-// List annotations
-app.get('/api/search',  function(req, res) {
-  return Annotation.find(function(err, annotations) {
-      if (!err) {
-          return res.send(annotations);
-      } else {
-          return console.log(err);
-      }
-  });
-});
+
+  app.get('/api/search', (req, res) => {
+    //Ref Import model Todo
+    Annotation.find().then( (ann) => {
+        res.send({ann})
+    }, (e) => {
+        res.status(404).send(e)
+    })
+
+})
+
+// // List annotations 
+// app.get('/api/search',  function(req, res) {
+//   return Annotation.find(function(err, annotations) {
+//       if (!err) {
+//           return res.send(annotations);
+//       } else {
+//           return console.log(err);
+//       }
+//   });
+// });
 
 // Single annotation
 app.get('/api/annotations/:id',  function(req, res) {
@@ -144,7 +155,9 @@ app.get('/api/annotations/:id',  function(req, res) {
 app.post('/api/annotations',  function(req, res) {
   var annotation;
   console.log("POST: ");
-  console.log(req.body);
+
+//   console.log(req.originalUrl)
+//   console.log(req.body);
   annotation = new Annotation({
       user: req.body.user,
       username: req.body.username,
@@ -153,7 +166,7 @@ app.post('/api/annotations',  function(req, res) {
       created: Date.now(),
       updated: Date.now(),
       text: req.body.text,
-      uri: req.body.uri,
+      uri: req.originalUrl,
       src: req.body.src,
       quote: req.body.quote,
       tags: req.body.tags,

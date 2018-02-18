@@ -4,15 +4,15 @@
  */
 export const getAnnotations = (state = null, action) => {
   // console.log('CountersReducer_getCounters', action);
-  console.log('reducerCalled')
-  console.log(action.type)
+  // console.log('reducerCalled')
+  // console.log(action.type)
   
   switch (action.type) {
     case 'ANNOTATION_LOADED_FULFILLED':
 
-      console.log('caseCalled')
+      // console.log('caseCalled')
   
-      console.log('ANNOTATION_LOADED_NEW', action.payload);
+      // console.log('ANNOTATION_LOADED_NEW', action.payload);
       return action.payload;
       break;
     // case 'COUNTER_LOADED_FULFILLED':

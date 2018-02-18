@@ -10,7 +10,7 @@ class Annotate extends Component {
     constructor(props){
         super(props)
 
-        console.log('annotations load: ' , this.props.annotations)
+        // console.log('annotations load: ' , this.props.annotations)
     }
 
 
@@ -104,8 +104,19 @@ class Annotate extends Component {
               //   var query = {
               //     _id: '5a893275b04e5fd2b24b398d'
               // };
-                // app.annotations.load(query);
+              // console.log('load called')
+              // console.log(app.annotations.load())
+                // app.annotations.load({_id: '5a89b47f65cf7ce1fce83ab9'});
+
+                // app.annotations.load().then( (req, res)=> {
+                //   console.log(req)
+                //   console.log(res)
+                // } )
+
+
               });
+
+             
       
             // simulate empty data load since demo has no annotation store
             // this.props.annotations

@@ -12,7 +12,7 @@ import axios from 'axios';
 // };
 
 export function getAnnotation() {
-  console.log('actionCalled')
+  // console.log('actionCalled')
   
   return {
     // type: 'COUNTER_LOADED',
