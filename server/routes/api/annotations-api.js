@@ -1,4 +1,4 @@
-const Annotation = require('../../models/Annotation');
+const Annotation = require('../../models/Annotation-model');
 
 // {
 //     create: '/annotations',
